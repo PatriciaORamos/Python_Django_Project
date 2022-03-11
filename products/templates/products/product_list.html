@@ -1,0 +1,45 @@
+{% extends 'base_layout.html' %}
+
+{% block content%}
+  
+  <div class="container">
+    <h1>Product List</h1>
+    {% if user.is_superuser %}
+      <a href="{% url 'products:create' %}" style="color:aliceblue" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus"></span> Create</a><br />
+    {% endif %}
+
+    <table class="table table-hover"> 
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Image</th>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">SKU</th>          
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for product in products %}
+        <tr>
+          <td scope="row">{{ product.id }}</td>
+          <td><a href="{% url 'products:detail' id=product.id %}"><img src="{{ product.picture.url }}" width="50" height="50"/></a></td>              
+          <td><a href="{% url 'products:detail' id=product.id %}">{{ product.title }}</a></td>
+          <td>{{ product.snippet }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>{{ product.sku }}</td>          
+          <td>
+            {% if user.is_superuser %}
+              <a href="{% url 'products:edit' product.id  %}" style="color:aliceblue" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+              <a href="{% url 'products:delete' product.id  %}" style="color:aliceblue" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>  
+  </div>
+{% endblock %}

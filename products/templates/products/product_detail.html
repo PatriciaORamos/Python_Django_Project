@@ -1,0 +1,18 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Product Detail</h1>
+    <div class="row">
+        <div class="col-6 col-md-4"><img src="{{ product.picture.url }}" width="200" height="200"/></div>
+        <div class="col-6 col-md-4">
+            <h3>{{ product.title }}</h3>
+            <p>Description: {{ product.description }}</p>
+            <p>Price: {{ product.price }}</p>
+            <p>Quantity: {{ product.quantity }}</p>
+            <p>SKU: {{ product.sku }}</p>
+            <a href="{% url 'products:list' %}" class="btn btn-secondary"><span class="glyphicon glyphicon-arrow-left"></span>  Return</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

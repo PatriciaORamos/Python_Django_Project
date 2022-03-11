@@ -1,0 +1,17 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <h1>Category Delete</h1>
+             
+        <form class="site-form" action="{% url 'categories:delete' category.id %}" method="POST">
+            <p>Are you sure you want to delete "{{ category }}" ?</p>   
+            {% csrf_token %}
+            <div class="button_form">
+                <a href="{% url 'categories:list' %}" class="btn btn-secondary">Cancel</a>
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </div>
+        </form>          
+    </div>
+{% endblock %}

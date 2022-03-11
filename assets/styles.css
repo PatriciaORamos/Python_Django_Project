@@ -1,0 +1,35 @@
+
+.site-form {
+    padding: 20px;
+}
+
+.site-form input, .site-form textarea, .site-form select{
+    display: block;
+    margin-bottom: 5px;
+}
+
+.helptext, .helptext ul{
+    margin: 0 auto 20px;
+    color: #bbb;
+    font-size: 14px;
+    display: block;
+}
+
+.errorlist li{
+    color: #ff2222;
+}
+
+.errorlist{
+    padding: 0;
+}
+
+.button_form a{
+    margin: 20px 0 0px 0;
+    padding: 10px;
+}
+
+.button_form input[type="submit"], .button_form a{
+    display: inline;
+    margin: 10px;
+}
+

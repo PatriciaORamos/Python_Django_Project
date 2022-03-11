@@ -1,0 +1,17 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <h1>Product Delete</h1>
+             
+        <form class="site-form" action="{% url 'products:delete' product.id %}" method="POST">
+            <p>Are you sure you want to delete "{{ product }}" ?</p>   
+            {% csrf_token %}
+            <div class="button_form">
+                <a href="{% url 'products:list' %}" class="btn btn-secondary">Cancel</a>
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </div>
+        </form>          
+    </div>
+{% endblock %}

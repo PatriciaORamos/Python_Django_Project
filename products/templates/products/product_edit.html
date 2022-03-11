@@ -1,0 +1,16 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>Product Edit</h1>
+        
+        <form class="site-form" action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            <div class="button_form">
+                <a href="{% url 'products:list' %}" class="btn btn-secondary">Cancel</a>
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </div>
+        </form>
+    </div>
+{% endblock %}

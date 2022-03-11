@@ -1,0 +1,15 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <div class="container">
+        <h2>Create a New Product</h2>
+        <form class="site-form" action="{% url 'products:create' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            <div class="button_form">
+                <a href="{% url 'products:list' %}" class="btn btn-secondary">Cancel</a>
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </div> 
+        </form>
+    </div>
+{% endblock %}
